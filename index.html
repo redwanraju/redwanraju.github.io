@@ -35,6 +35,7 @@
     color: white;
     position: relative;
     overflow: hidden;
+    padding-top: 80px;
   }
   .hero::before {
     content: '';
@@ -47,7 +48,22 @@
   .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 15px; }
   .hero h1 span { color: #38bdf8; }
   .hero .lead { font-size: 1.2rem; color: #cbd5e1; margin-bottom: 10px; }
-  .hero .desc { color: #94a3b8; max-width: 650px; margin: 0 auto 30px; }
+  .hero .desc { color: #94a3b8; max-width: 650px; margin: 0 0 30px; }
+
+  /* PROFILE IMAGE */
+  .profile-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #38bdf8;
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.5);
+    transition: transform 0.3s;
+  }
+  .profile-img:hover {
+    transform: scale(1.05);
+  }
+
   .btn-custom {
     padding: 12px 30px;
     border-radius: 50px;
@@ -205,6 +221,7 @@
     .hero h1 { font-size: 2.2rem; }
     .hero .lead { font-size: 1rem; }
     .section-title { font-size: 1.7rem; }
+    .profile-img { width: 160px; height: 160px; margin-bottom: 25px; }
   }
 </style>
 </head>
@@ -229,18 +246,25 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO with PROFILE IMAGE -->
 <section id="home" class="hero">
-  <div class="container text-center position-relative">
-    <h1>Hi, I'm <span>Redwan Raju</span></h1>
-    <p class="lead">PHP Web Developer | MySQL | AJAX | Bootstrap | JavaScript</p>
-    <p class="desc">
-      I help businesses fix PHP website issues, build custom admin panels,
-      and develop reliable POS & E-commerce systems.
-    </p>
-    <div>
-      <a href="#projects" class="btn btn-primary-custom btn-custom">View My Work</a>
-      <a href="#contact" class="btn btn-outline-custom btn-custom">Hire Me</a>
+  <div class="container position-relative">
+    <div class="row align-items-center">
+      <div class="col-md-4 text-center mb-4 mb-md-0">
+        <img src="profile.jpg" alt="Redwan Raju" class="profile-img">
+      </div>
+      <div class="col-md-8 text-center text-md-start">
+        <h1>Hi, I'm <span>Redwan Raju</span></h1>
+        <p class="lead">PHP Web Developer | MySQL | AJAX | Bootstrap | JavaScript</p>
+        <p class="desc">
+          I help businesses fix PHP website issues, build custom admin panels,
+          and develop reliable POS & E-commerce systems.
+        </p>
+        <div>
+          <a href="#projects" class="btn btn-primary-custom btn-custom">View My Work</a>
+          <a href="#contact" class="btn btn-outline-custom btn-custom">Hire Me</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -417,7 +441,7 @@
       </div>
     </div>
     <div class="text-center mt-5">
-      <a href="mailto:redwanraju75@gmail.com">redwanraju75@gmail.com</a>
+      <a href="mailto:redwanraju75@gmail.com" class="btn btn-primary-custom btn-custom">Send Me an Email</a>
     </div>
   </div>
 </section>
@@ -429,7 +453,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // Smooth scroll + close navbar on mobile
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
       const target = document.querySelector(this.getAttribute('href'));
@@ -442,7 +465,6 @@
     });
   });
 
-  // Navbar shadow on scroll
   window.addEventListener('scroll', () => {
     const nav = document.querySelector('.navbar');
     if (window.scrollY > 50) {
